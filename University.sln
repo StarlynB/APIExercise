@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityWebAPI", "UniversityWebAPI\UniversityWebAPI.csproj", "{A1396316-50D7-4795-8279-E94773C48095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "linqExamples", "linqExamples\linqExamples.csproj", "{18806AFA-17B5-4CAF-8B19-EF957AB2B872}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1396316-50D7-4795-8279-E94773C48095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1396316-50D7-4795-8279-E94773C48095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1396316-50D7-4795-8279-E94773C48095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1396316-50D7-4795-8279-E94773C48095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18806AFA-17B5-4CAF-8B19-EF957AB2B872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18806AFA-17B5-4CAF-8B19-EF957AB2B872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18806AFA-17B5-4CAF-8B19-EF957AB2B872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18806AFA-17B5-4CAF-8B19-EF957AB2B872}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76EB36CB-25F9-44C8-8CEC-D73CBED67D8A}
+	EndGlobalSection
+EndGlobal

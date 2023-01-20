@@ -1,0 +1,12 @@
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\linqExamples.csproj.AssemblyReference.cache
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\linqExamples.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\linqExamples.AssemblyInfoInputs.cache
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\linqExamples.AssemblyInfo.cs
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\linqExamples.csproj.CoreCompileInputs.cache
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\bin\Debug\net6.0\linqExamples.deps.json
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\bin\Debug\net6.0\linqExamples.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\bin\Debug\net6.0\linqExamples.pdb
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\linqExamples.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\refint\linqExamples.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\linqExamples.pdb
+C:\Users\Starlyn\Desktop\APIRESTful\University\linqExamples\obj\Debug\net6.0\ref\linqExamples.dll
