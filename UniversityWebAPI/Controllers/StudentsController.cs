@@ -17,12 +17,14 @@ namespace UniversityWebAPI.Controllers
     {
         private readonly UniversitysDBContext _context;
         private readonly IStudentsServices _studentsServices;
+        private readonly JwtSetting _jwtSetting;
 
 
-        public StudentsController(UniversitysDBContext context, IStudentsServices studentsServices)
+        public StudentsController(UniversitysDBContext context, IStudentsServices studentsServices, JwtSetting jwtSetting)
         {
             _context = context;
             _studentsServices = studentsServices;
+            _jwtSetting = jwtSetting;
         }
 
 

@@ -15,7 +15,7 @@
 
 
         public bool RequireExpirationTime { get; set; } = true;
-        public string ValidateLifeTime { get; set; }
+        public bool ValidateLifeTime { get; set; }
 
 
     }

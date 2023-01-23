@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityWebAPI.DataAccess;
 
@@ -11,9 +12,10 @@ using UniversityWebAPI.DataAccess;
 namespace UniversityWebAPI.Migrations
 {
     [DbContext(typeof(UniversitysDBContext))]
-    partial class UniversitysDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230123215841_Add Login User tables")]
+    partial class AddLoginUsertables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

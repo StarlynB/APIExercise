@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniversityWebAPI.DataAccess;
 
@@ -11,9 +12,10 @@ using UniversityWebAPI.DataAccess;
 namespace UniversityWebAPI.Migrations
 {
     [DbContext(typeof(UniversitysDBContext))]
-    partial class UniversitysDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230123215604_Add Login Users tables")]
+    partial class AddLoginUserstables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,27 +65,6 @@ namespace UniversityWebAPI.Migrations
                     b.ToTable("baseEntities");
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("BaseEntity");
-                });
-
-            modelBuilder.Entity("UniversityWebAPI.Models.DataModel.LoginUsers", b =>
-                {
-                    b.Property<int?>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LoginUsers");
                 });
 
             modelBuilder.Entity("UniversityWebAPI.Models.DataModel.Category", b =>

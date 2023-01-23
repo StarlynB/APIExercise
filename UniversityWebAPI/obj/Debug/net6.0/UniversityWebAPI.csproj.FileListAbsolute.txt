@@ -268,3 +268,5 @@ C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.pdb
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.genruntimeconfig.cache
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\ref\UniversityWebAPI.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
