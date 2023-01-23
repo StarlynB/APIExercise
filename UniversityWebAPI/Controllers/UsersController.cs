@@ -15,12 +15,10 @@ namespace UniversityWebAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly UniversitysDBContext _context;
-        private readonly JwtSetting _jwtSetting;
 
-        public UsersController(UniversitysDBContext context, JwtSetting jwtSetting)
+        public UsersController(UniversitysDBContext context)
         {
             _context = context;
-            _jwtSetting = jwtSetting;
         }
 
         // GET: api/Users

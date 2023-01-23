@@ -15,12 +15,10 @@ namespace UniversityWebAPI.Controllers
     public class ChaptersController : ControllerBase
     {
         private readonly UniversitysDBContext _context;
-        private readonly JwtSetting _JwSetting;
 
-        public ChaptersController(UniversitysDBContext context, JwtSetting jwSetting)
+        public ChaptersController(UniversitysDBContext context)
         {
             _context = context;
-            _JwSetting = jwSetting;
         }
 
         // GET: api/Chapters

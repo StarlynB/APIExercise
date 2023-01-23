@@ -12,8 +12,6 @@
         public Guid GuId { get; set; }
         public DateTime ExpiredTime { get; set; }
 
-        public string Password { get; set; }
-
         
     }
 }

@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using UniversityWebAPI.DataAccess;
 using UniversityWebAPI.Models.DataAccess;
-using UniversityWebAPI.Models.DataModel;
 using UniversityWebAPI.Services;
 
 namespace UniversityWebAPI.Controllers
@@ -19,13 +16,11 @@ namespace UniversityWebAPI.Controllers
     public class BaseEntitiesController : ControllerBase
     {
         private readonly UniversitysDBContext _context;
-        private readonly JwtSetting _jwtSetting;
    
 
-        public BaseEntitiesController(UniversitysDBContext context, JwtSetting jwtSetting)
+        public BaseEntitiesController(UniversitysDBContext context)
         {
             _context = context;
-            _jwtSetting = jwtSetting;
         }
 
         // GET: api/BaseEntities
