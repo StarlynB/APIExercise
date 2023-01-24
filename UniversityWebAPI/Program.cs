@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using UniversityWebAPI;
 using UniversityWebAPI.DataAccess;
 using UniversityWebAPI.Services;
 
@@ -18,15 +17,6 @@ var connectionString = builder.Configuration.GetConnectionString(ConnectionName)
 builder.Services.AddDbContext<UniversitysDBContext>(options =>
     options = options.UseSqlServer(connectionString));
 
-//add services of jwt autorization
-builder.Services.AddJwtTokenServices(builder.Configuration);
-
-
-builder.Services.AddControllers();
-
-//add Custom services
-builder.Services.AddScoped<IStudentsServices, StudentsServices>();
-
 
 //Add autorization
 builder.Services.AddAuthorization(options =>
@@ -35,11 +25,8 @@ builder.Services.AddAuthorization(options =>
 });
 
 
-//todo: Add the rest of services
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-
+//builder.Services.addJwtTokenServices(builder.Configuration);
 //Config swaguer to take care of autorization of JWT
 builder.Services.AddSwaggerGen(options =>
 {
@@ -69,10 +56,18 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddControllers();
+
+//add Custom services
+builder.Services.AddScoped<IStudentsServices, StudentsServices>();
+
+//todo: Add the rest of services
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
 
 //TODO: Config Swagger to take care of autorization of JWT
 builder.Services.AddSwaggerGen();
-
 
 
 //Cors configuration

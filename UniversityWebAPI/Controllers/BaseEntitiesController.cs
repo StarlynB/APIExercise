@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -20,7 +21,7 @@ namespace UniversityWebAPI.Controllers
     {
         private readonly UniversitysDBContext _context;
         private readonly JwtSetting _jwtSetting;
-   
+
 
         public BaseEntitiesController(UniversitysDBContext context, JwtSetting jwtSetting)
         {
@@ -30,6 +31,7 @@ namespace UniversityWebAPI.Controllers
 
         // GET: api/BaseEntities
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<BaseEntity>>> GetbaseEntities()
         {
             return await _context.baseEntities.ToListAsync();
@@ -52,7 +54,9 @@ namespace UniversityWebAPI.Controllers
 
         // PUT: api/BaseEntities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<IActionResult> PutBaseEntity(int? id, BaseEntity baseEntity)
         {
             if (id != baseEntity.Id)
@@ -84,6 +88,7 @@ namespace UniversityWebAPI.Controllers
         // POST: api/BaseEntities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<BaseEntity>> PostBaseEntity(BaseEntity baseEntity)
         {
             _context.baseEntities.Add(baseEntity);
@@ -94,6 +99,7 @@ namespace UniversityWebAPI.Controllers
 
         // DELETE: api/BaseEntities/5
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<IActionResult> DeleteBaseEntity(int? id)
         {
             var baseEntity = await _context.baseEntities.FindAsync(id);

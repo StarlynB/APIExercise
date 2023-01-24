@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,19 +20,18 @@ namespace UniversityWebAPI.Controllers
     {
         private readonly UniversitysDBContext _context;
         private readonly IStudentsServices _studentsServices;
-        private readonly JwtSetting _jwtSetting;
 
 
-        public StudentsController(UniversitysDBContext context, IStudentsServices studentsServices, JwtSetting jwtSetting)
+        public StudentsController(UniversitysDBContext context, IStudentsServices studentsServices)
         {
             _context = context;
             _studentsServices = studentsServices;
-            _jwtSetting = jwtSetting;
         }
 
 
         // GET: api/Students
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<Student>>> Getstudents()
         {
             return await _context.students.ToListAsync();
@@ -37,6 +39,7 @@ namespace UniversityWebAPI.Controllers
 
         // GET: api/Students/5
         [HttpGet("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<Student>> GetStudent(int? id)
         {
             var student = await _context.students.FindAsync(id);
@@ -52,6 +55,7 @@ namespace UniversityWebAPI.Controllers
         // PUT: api/Students/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<IActionResult> PutStudent(int? id, Student student)
         {
             if (id != student.Id)
@@ -83,6 +87,7 @@ namespace UniversityWebAPI.Controllers
         // POST: api/Students
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<Student>> PostStudent(Student student)
         {
             _context.students.Add(student);
@@ -93,6 +98,7 @@ namespace UniversityWebAPI.Controllers
 
         // DELETE: api/Students/5
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<IActionResult> DeleteStudent(int? id)
         {
             var student = await _context.students.FindAsync(id);

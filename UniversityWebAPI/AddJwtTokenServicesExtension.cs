@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using UniversityWebAPI.Models.DataModel;
-using UniversityWebAPI.Services;
 
 namespace UniversityWebAPI
 {
@@ -41,6 +40,7 @@ namespace UniversityWebAPI
                     };
                 });
         }
-        
+
     }
 }
+

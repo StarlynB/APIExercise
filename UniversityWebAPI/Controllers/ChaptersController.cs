@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,16 +18,17 @@ namespace UniversityWebAPI.Controllers
     public class ChaptersController : ControllerBase
     {
         private readonly UniversitysDBContext _context;
-        private readonly JwtSetting _JwSetting;
+        private readonly JwtSetting _jwtSetting;
 
-        public ChaptersController(UniversitysDBContext context, JwtSetting jwSetting)
+        public ChaptersController(UniversitysDBContext context, JwtSetting jwtSetting)
         {
             _context = context;
-            _JwSetting = jwSetting;
+            _jwtSetting = jwtSetting;
         }
 
         // GET: api/Chapters
         [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<Chapter>>> Getchapters()
         {
             return await _context.chapters.ToListAsync();
@@ -78,6 +82,7 @@ namespace UniversityWebAPI.Controllers
         // POST: api/Chapters
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<Chapter>> PostChapter(Chapter chapter)
         {
             _context.chapters.Add(chapter);
@@ -88,6 +93,7 @@ namespace UniversityWebAPI.Controllers
 
         // DELETE: api/Chapters/5
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<IActionResult> DeleteChapter(int? id)
         {
             var chapter = await _context.chapters.FindAsync(id);

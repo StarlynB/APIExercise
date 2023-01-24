@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using UniversityWebAPI.DataAccess;
 using UniversityWebAPI.Helpers;
 using UniversityWebAPI.Models.DataModel;
@@ -19,12 +18,18 @@ namespace UniversityWebAPI.Controllers
 
         public AccountController(JwtSetting jwtSetting, UniversitysDBContext context)
         {
+            _context= context;
             _jwtSetting = jwtSetting;
-            _context = context;
         }
-           
-        
-          
+
+        [HttpGet]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+        public async Task<ActionResult<IEnumerable<LoginUsers>>> GetUsers()
+        {
+            return await _context.LoginUsers.ToListAsync();
+        }
+
+
         [HttpPost]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<IActionResult> GetToken(LoginUsers loginUsers)
@@ -33,7 +38,7 @@ namespace UniversityWebAPI.Controllers
             try
             {
                 var token = new UserTokens();
-                var valid = _context.LoginUsers.Any(user => user.Username.Equals(loginUsers.Username , StringComparison.OrdinalIgnoreCase) || user.Password.Equals(loginUsers.Password));
+                var valid = _context.LoginUsers.Any(user => user.Username.Equals(loginUsers.Username, StringComparison.OrdinalIgnoreCase) || user.Password.Equals(loginUsers.Password));
 
                 if (valid)
                 {
@@ -67,13 +72,13 @@ namespace UniversityWebAPI.Controllers
         {
             return Ok(_context.LoginUsers.ToListAsync());
         }
-    
-        
 
 
-        
-    
-       
+
+
+
+
+
 
 
 

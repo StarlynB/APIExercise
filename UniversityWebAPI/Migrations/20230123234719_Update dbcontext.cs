@@ -4,7 +4,7 @@
 
 namespace UniversityWebAPI.Migrations
 {
-    public partial class AddLoginUsertables : Migration
+    public partial class Updatedbcontext : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
