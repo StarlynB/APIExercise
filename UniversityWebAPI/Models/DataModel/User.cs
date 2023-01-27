@@ -18,5 +18,9 @@ namespace UniversityWebAPI.Models.DataModel
         [Required]
         public string Password { get; set; } = string.Empty;
 
+        //[Required]
+        //public string? role { get; set; }
+
+
     }
 }

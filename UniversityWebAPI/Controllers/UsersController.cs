@@ -18,17 +18,14 @@ namespace UniversityWebAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly UniversitysDBContext _context;
-        private readonly JwtSetting _jwtSetting;
 
-        public UsersController(UniversitysDBContext context, JwtSetting jwtSetting)
+        public UsersController(UniversitysDBContext context)
         {
             _context = context;
-            _jwtSetting = jwtSetting;
         }
 
         // GET: api/Users
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<User>>> Getusers()
         {
             return await _context.users.ToListAsync();
@@ -36,7 +33,6 @@ namespace UniversityWebAPI.Controllers
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<User>> GetUser(int? id)
         {
             var user = await _context.users.FindAsync(id);
@@ -52,7 +48,7 @@ namespace UniversityWebAPI.Controllers
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+       
         public async Task<IActionResult> PutUser(int? id, User user)
         {
             if (id != user.Id)
@@ -84,7 +80,6 @@ namespace UniversityWebAPI.Controllers
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public async Task<ActionResult<User>> PostUser(User user)
         {
             _context.users.Add(user);
@@ -95,7 +90,7 @@ namespace UniversityWebAPI.Controllers
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
+
         public async Task<IActionResult> DeleteUser(int? id)
         {
             var user = await _context.users.FindAsync(id);

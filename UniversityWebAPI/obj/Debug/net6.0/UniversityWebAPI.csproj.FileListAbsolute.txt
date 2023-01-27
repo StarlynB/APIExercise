@@ -8,6 +8,7 @@ C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\MessagePack.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\MessagePack.Annotations.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.Build.dll
@@ -37,6 +38,7 @@ C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
@@ -268,5 +270,12 @@ C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.pdb
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.genruntimeconfig.cache
 C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\ref\UniversityWebAPI.dll
-C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\es-ES\UniversityWebAPI.resources.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\bin\Debug\net6.0\fr-FR\UniversityWebAPI.resources.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.Resource_Language.Controllers.AccountController.deu-DEU.resources
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.Resource_Language.Controllers.AccountController.en-USA.resources
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.Resource_Language.Controllers.AccountController.es-ES.resources
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.Resource_Language.Controllers.AccountController.fr-FR.resources
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\UniversityWebAPI.csproj.GenerateResource.cache
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\es-ES\UniversityWebAPI.resources.dll
+C:\Users\Starlyn\Desktop\APIRESTful\University\UniversityWebAPI\obj\Debug\net6.0\fr-FR\UniversityWebAPI.resources.dll

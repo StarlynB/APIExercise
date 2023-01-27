@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 using UniversityWebAPI.DataAccess;
 using UniversityWebAPI.Helpers;
 using UniversityWebAPI.Models.DataModel;
@@ -15,50 +12,56 @@ namespace UniversityWebAPI.Controllers
     {
         private readonly JwtSetting _jwtSetting;
         private readonly UniversitysDBContext _context;
-
-        public AccountController(JwtSetting jwtSetting, UniversitysDBContext context)
+        private readonly IStringLocalizer<AccountController> _stringLocalizer;
+        public AccountController(JwtSetting jwtSetting, UniversitysDBContext context, IStringLocalizer<AccountController> stringLocalizer)
         {
-            _context= context;
+            _stringLocalizer = stringLocalizer;
+            _context = context;
             _jwtSetting = jwtSetting;
+
         }
 
-        [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-        public async Task<ActionResult<IEnumerable<LoginUsers>>> GetUsers()
-        {
-            return await _context.LoginUsers.ToListAsync();
-        }
 
 
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-        public async Task<IActionResult> GetToken(LoginUsers loginUsers)
+        public IActionResult GetToken(LoginUsers loginUsers)
         {
-
             try
             {
+                
                 var token = new UserTokens();
-                var valid = _context.LoginUsers.Any(user => user.Username.Equals(loginUsers.Username, StringComparison.OrdinalIgnoreCase) || user.Password.Equals(loginUsers.Password));
 
-                if (valid)
+                //Message Languages
+                var MessageWelcome = _stringLocalizer.GetString("Welcome").Value ?? string.Empty;
+
+                //Search a user in context with LinQ
+                var SearchUsers = (from User in _context.users
+                                   where User.Name == loginUsers.Username && User.Password == loginUsers.Password
+                                   select User).FirstOrDefault();
+
+                if(SearchUsers != null)
                 {
-                    var user = _context.LoginUsers.FirstOrDefault(user => user.Username.Equals(loginUsers.Username) || user.Password.Equals(loginUsers.Password));
+                    // var user = _context.LoginUsers.FirstOrDefault(user => user.Username.Equals(loginUsers.Username, StringComparison.OrdinalIgnoreCase) && user.Password.Equals(loginUsers.Password, StringComparison.OrdinalIgnoreCase));
 
-                    token = JwtHelpers.GenUserTokenKey(new UserTokens()
+                    token = JwtHelpers.GetUserTokens(new UserTokens()
                     {
-                        UserName = user.Username,
-                        Password = user.Password,
-                        GuId = new Guid()
+                        UserName = SearchUsers.Name,
+                        EmailId = SearchUsers.Email,
+                        Id = SearchUsers.Id,
+                        GuId = Guid.NewGuid(),
                     }, _jwtSetting);
-
+                    
                 }
                 else
                 {
                     return BadRequest("wrong password");
                 }
 
-                return Ok(token);
+                return Ok(new
+                {
+                    AccountName = MessageWelcome,
 
+                },token);
             }
             catch (Exception ex)
             {
@@ -66,11 +69,15 @@ namespace UniversityWebAPI.Controllers
             }
         }
 
+        private IActionResult Ok(object value, UserTokens token)
+        {
+            throw new NotImplementedException();
+        }
+
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
         public IActionResult GetUserList()
         {
-            return Ok(_context.LoginUsers.ToListAsync());
+            return Ok();
         }
 
 

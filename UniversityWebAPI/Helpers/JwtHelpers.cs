@@ -30,7 +30,7 @@ namespace UniversityWebAPI.Helpers
             }
 
             return claims;
-        
+
         }
 
         public static IEnumerable<Claim> GetClaim(this UserTokens userAccount, out Guid Id)
@@ -39,7 +39,7 @@ namespace UniversityWebAPI.Helpers
             return GetClaim(userAccount, Id);
         }
 
-        public static UserTokens GenUserTokenKey(UserTokens model, JwtSetting jwtSetting)
+        public static UserTokens GetUserTokens(UserTokens model, JwtSetting jwtSetting)
         {
             try
             {
@@ -77,16 +77,18 @@ namespace UniversityWebAPI.Helpers
                 userTokens.Token = new JwtSecurityTokenHandler().WriteToken(JwToken);
                 userTokens.UserName = model.UserName;
                 userTokens.Id = model.Id;
-                userTokens.GuId= Id;
+                userTokens.GuId = Id;
+
                 return userTokens;
-                    
-            }catch(Exception ex) 
+
+            }
+            catch (Exception ex)
             {
-                throw new Exception("Error generating the JWT" + ex);            
+                throw new Exception("Error generating the JWT" + ex);
             }
 
 
 
+        }
     }
-    } 
 }

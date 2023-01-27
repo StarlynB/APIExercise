@@ -11,7 +11,7 @@ namespace UniversityWebAPI.DataAccess
         {
         
         }
-
+        
         public DbSet<LoginUsers> LoginUsers { get; set; }
         public DbSet<BaseEntity> baseEntities { get; set; }
         public DbSet<Category> categories { get; set; }

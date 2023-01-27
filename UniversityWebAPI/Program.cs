@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using UniversityWebAPI;
 using UniversityWebAPI.DataAccess;
 using UniversityWebAPI.Services;
 
@@ -26,7 +27,8 @@ builder.Services.AddAuthorization(options =>
 
 
 
-//builder.Services.addJwtTokenServices(builder.Configuration);
+builder.Services.AddJwtTokenServices(builder.Configuration);
+
 //Config swaguer to take care of autorization of JWT
 builder.Services.AddSwaggerGen(options =>
 {
@@ -66,6 +68,20 @@ builder.Services.AddScoped<IStudentsServices, StudentsServices>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+
+//builder.Services.addJwtTokenServices(builder.Configuration);
+
+
+builder.Services.AddControllers();
+
+//add Custom services
+builder.Services.AddScoped<IStudentsServices, StudentsServices>();
+
+//todo: Add the rest of services
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+
 //TODO: Config Swagger to take care of autorization of JWT
 builder.Services.AddSwaggerGen();
 
@@ -82,6 +98,15 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+
+// Supported cultures
+var supporrtedCultures = new[] { "en-US", "es-Es", "fr-FR", "de-DEU" }; //USA ingles...
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supporrtedCultures[0]) // english by default
+    .AddSupportedCultures(supporrtedCultures) // add all supported cultures
+    .AddSupportedUICultures(supporrtedCultures); // add supported cultures to UI
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

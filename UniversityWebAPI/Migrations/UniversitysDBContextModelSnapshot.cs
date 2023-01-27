@@ -60,7 +60,7 @@ namespace UniversityWebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("baseEntities");
+                    b.ToTable("baseEntities", (string)null);
 
                     b.HasDiscriminator<string>("Discriminator").HasValue("BaseEntity");
                 });
@@ -83,7 +83,7 @@ namespace UniversityWebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LoginUsers");
+                    b.ToTable("LoginUsers", (string)null);
                 });
 
             modelBuilder.Entity("UniversityWebAPI.Models.DataModel.Category", b =>
